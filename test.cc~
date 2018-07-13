@@ -1,0 +1,112 @@
+#include <iostream>
+#include <time.h>
+#include "avl.h"
+#include "bst.h"
+
+using namespace std;
+/*
+ *@author Brian Lee
+ *@version CMPSC 130A F16
+ *
+ */
+
+int main()
+{
+  AVLTree atree = new AVLTree();
+  BinarySearchTree bst = new BinarySearchTree();
+  clock_t runtime = new clock();
+
+  cout << "Initial runtime: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  //begin 1000 tests
+  for(int i = 1; i <= 1000; ++i)
+    {
+      atree.Insert(i);
+    }
+
+  cout << "AVL Insert 1000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  for(int i = 1; i <= 1000; ++i)
+    {
+      bst.Insert(i);
+    }
+
+  cout << "BST Insert 1000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  for(int i = 1; i<= 1000; ++i)
+    {
+      atree.Access(i);
+    }
+
+  cout << "AVL Access 1000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  for(int i = 0; i <= 1000; ++i)
+    {
+      bst.Access(i);
+    }
+
+  cout << "BST Access 1000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  for(int i = 0; i <= 1000; ++i)
+    {
+      atree.Delete(i);
+    }
+
+  cout << "AVL Delete 1000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  for(int i = 0; i <= 1000; ++i)
+    {
+      bst.Delete(i);
+    }
+
+  cout << "BST Delete 1000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  //begin 10000 tests
+
+  for(int i = 1; i <= 10000; ++i)
+    {
+      atree.Insert(i);
+    }
+
+  cout << "AVL Insert 10000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  for(int i = 1; i <= 10000; ++i)
+    {
+      bst.Insert(i);
+    }
+
+  cout << "BST Insert 10000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  for(int i = 1; i<= 10000; ++i)
+    {
+      atree.Access(i);
+    }
+
+  cout << "AVL Access 10000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  for(int i = 0; i <= 10000; ++i)
+    {
+      bst.Access(i);
+    }
+
+  cout << "BST Access 10000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  for(int i = 0; i <= 10000; ++i)
+    {
+      atree.Delete(i);
+    }
+
+  cout << "AVL Delete 10000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  for(int i = 0; i <= 10000; ++i)
+    {
+      bst.Delete(i);
+    }
+
+  cout << "BST Delete 10000: " << (float)runtime/CLOCKS_PER_SEC << endl;
+
+  //begin 50000 tests
+  
+  
+  return 0;
+}

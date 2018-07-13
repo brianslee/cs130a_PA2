@@ -1,0 +1,53 @@
+#ifndef AVL_H_
+#define AVL_H_
+
+#include <string>
+
+struct AvlNode
+{
+  int32_t elem;
+  AvlNode *left;
+  AvlNode *right;
+  int height;
+
+  AvlNode(): elem(0), left(NULL), right(NULL), height(0) {}
+
+  AvlNode(const int32_t & e, AvlNode *lt, AvlNode *rt, int h = 0): elem(e), left(lt), right(rt), height(h){}
+};
+
+class AVLTree
+{
+public:
+  AVLTree () : root(NULL) {};
+  virtual ~AVLTree ();
+  void Insert (int32_t val);
+  // choose smallest node on the right subtree when deleting a node with two children
+  void Delete (int32_t val);
+  bool Access (int32_t val);
+  std::string PrintPreOrder () const;//ask for help
+  std::string PrintInOrder () const;//ask for help
+
+private:
+  /* data */
+  AvlNode *root;
+  static const int ALLOWED_IMBALANCE = 1;
+
+  void makeEmpty(AvlNode * & t);
+  
+  int height(AvlNode *t) const;
+  void insert(int32_t val, AvlNode * & t);
+  void balance( AvlNode * & t);
+  bool Access(int32_t val, AvlNode * & t);
+  void rotateWithLeftChild(AvlNode * & k2);
+  void rotateWithRightChild(AvlNode * & k2);
+  void doubleWithLeftChild(AvlNode * & k3);
+  void doubleWithRightChild(AvlNode * & k3);
+  void remove(int32_t val, AvlNode * & t);
+  AvlNode* findMin(AvlNode *t) const;
+  AvlNode* getRoot();
+
+  std::string preorderHelper(AvlNode * t) const;//Needed?
+  std::string inOrderHelper(AvlNode * t) const;//Needed?
+}; 
+
+#endif /* end of include guard: AVL_H_ */
